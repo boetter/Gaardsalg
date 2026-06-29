@@ -1,0 +1,16 @@
+{
+  "name": "Gårdsalg – friske afgrøder nær sommerhuset",
+  "short_name": "Gårdsalg",
+  "description": "Find lækre afgrøder, friske æg, jordbær, honning og gårdlækkerier nær sommerhuset i Vejby.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fbf7ee",
+  "theme_color": "#3a7d44",
+  "lang": "da",
+  "categories": ["food", "shopping", "travel"],
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
