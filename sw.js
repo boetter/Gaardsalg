@@ -1,6 +1,6 @@
 /* Simpel offline-cache for Gårdsalg.
  * Bump CACHE-versionen når app-skallen ændres, så gamle filer ryddes. */
-const CACHE = "gaardsalg-v1";
+const CACHE = "gaardsalg-v2";
 const SHELL = [
   "./",
   "./index.html",
