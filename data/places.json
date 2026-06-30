@@ -236,7 +236,7 @@
     "products": ["Jordbær", "Kartofler", "Ærter", "Rabarber", "Asparges", "Grød", "Marmelade", "Sirup", "Honning"],
     "hours": {
       "alwaysOpen": false,
-      "note": "Gårdsalg i sæsonen. Friske bær fra jordbærsæsonen starter.",
+      "note": "Gårdbutikken »Den Store Røde Lade« er åben alle ugens dage i sæsonen. Alt er plukket samme morgen.",
       "season": "Sommer (jordbærsæson →)",
       "weekly": null
     },
