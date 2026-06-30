@@ -67,10 +67,9 @@ Førsteversionen er bygget ud fra steder Jacob selv har fundet (screenshots fra
 apps som *Gårdsalg/frit-fjerkrae*, Google Maps og @visitnordsjaelland) plus
 websøgning efter manglende adresser/åbningstider.
 
-> **Koordinat-note:** Udgående geokodnings-opslag (Nominatim/DAWA) var spærret af
-> miljøets proxy-politik, så `lat`/`lng` er **estimeret ud fra adressen**. De er
-> gode nok til kort og afstands­sortering, og *Kør mig dertil* bruger den
-> præcise adresse-tekst. Efterjustér gerne koordinaterne med DAWA når der er
-> netadgang – se `data/README.md`.
+> **Koordinat-note:** Sommerhusets position og de adresse-match, der kan
+> bekræftes sikkert, er slået op i DAWA. `lat`/`lng` ligger i `data/config.json`
+> og `data/places.json`; *Kør mig dertil* bruger stadig adresse-teksten, så
+> navigationen forbliver robust.
 
 Kortdata © OpenStreetMap-bidragydere.

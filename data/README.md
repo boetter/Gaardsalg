@@ -52,7 +52,7 @@ Din opgave er at omsætte det til en ny post i `places.json`.
   "instagram": "",
   "contactPerson": "",
   "source": "Hvor data kom fra (screenshot/hjemmeside)",
-  "verified": "2026-06-29",
+  "verified": "2026-06-30",
   "featured": false
 }
 ```
@@ -93,9 +93,8 @@ Sådan finder du koordinater:
   Brug `x` (= `lng`) og `y` (= `lat`) fra svaret.
 - **Alternativt:** Slå adressen op på Google Maps / OpenStreetMap, højreklik → kopiér
   koordinater. Rækkefølgen er altid `lat, lng` (Nordsjælland ligger ca. `lat ≈ 56`, `lng ≈ 12`).
-- **Bemærk:** I dette miljø var udgående opslag til Nominatim/DAWA spærret af proxy-politik
-  (403). Eksisterende koordinater er derfor *estimerede* ud fra adressen. Når du har
-  netadgang, må du gerne efterjustere dem med DAWA for fuld præcision.
+- **Bemærk:** DAWA returnerer `x` som længdegrad (`lng`) og `y` som breddegrad
+  (`lat`). Brug den rækkefølge konsekvent i `places.json`.
 
 ## 4. Gyldige kategorier
 

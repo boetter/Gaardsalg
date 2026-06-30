@@ -22,6 +22,7 @@
   let map = null;
   const markers = {};       // id -> marker
   let homeMarker = null;
+  let userMarker = null;
 
   /* ---------- Hjælpefunktioner ---------- */
 
@@ -74,7 +75,8 @@
       }
     }
     if (h.season) return { kind: "season", label: h.season };
-    return { kind: "call", label: "Ring i forvejen" };
+    if (place.phone || place.phone2) return { kind: "call", label: "Ring i forvejen" };
+    return { kind: "unknown", label: "Tjek ved vejen" };
   }
   const isOpenLike = (st) => st.kind === "open" || st.kind === "self";
 
@@ -197,9 +199,10 @@
   }
 
   function badgeFor(st) {
-    const cls = { open: "open", self: "self", season: "season", call: "call", closed: "closed" }[st.kind];
+    const cls = { open: "open", self: "self", season: "season", call: "call", closed: "closed", unknown: "unknown" }[st.kind];
     const dot = st.kind === "open" ? "🟢 " : st.kind === "self" ? "🔓 " :
-                st.kind === "season" ? "🗓️ " : st.kind === "closed" ? "🔴 " : "📞 ";
+                st.kind === "season" ? "🗓️ " : st.kind === "closed" ? "🔴 " :
+                st.kind === "unknown" ? "ℹ️ " : "📞 ";
     return `<span class="badge badge--${cls}">${dot}${esc(st.label)}</span>`;
   }
 
@@ -331,6 +334,10 @@
       // skift tilbage til sommerhuset
       state.usingMyLocation = false;
       state.origin = { ...state.config.home };
+      if (userMarker) {
+        userMarker.remove();
+        userMarker = null;
+      }
       btn.classList.remove("is-active");
       btn.querySelector(".loc-btn__label").textContent = "Min position";
       recomputeDistances(); render();
@@ -346,8 +353,9 @@
         btn.classList.remove("is-loading");
         btn.classList.add("is-active");
         btn.querySelector(".loc-btn__label").textContent = "Sommerhus";
-        if (homeMarker) {
-          L.marker([state.origin.lat, state.origin.lng],
+        if (map) {
+          if (userMarker) userMarker.remove();
+          userMarker = L.marker([state.origin.lat, state.origin.lng],
             { icon: pinIcon("🧍", true), zIndexOffset: 1100 }).addTo(map).bindPopup("<b>Du er her</b>");
         }
         recomputeDistances(); render();
